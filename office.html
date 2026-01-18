@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Office Guest Wi-Fi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Office Guest Wi-Fi</h1>
+<p>Scan the QR code below to connect</p>
+
+<canvas id="qr"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script>
+  const ssid = "Company-Guest-Office";
+  const password = "CHANGE_ME";
+  const auth = "WPA";
+
+  const wifiString = `WIFI:T:${auth};S:${ssid};P:${password};;`;
+
+  QRCode.toCanvas(
+    document.getElementById("qr"),
+    wifiString,
+    { width: 260 }
+  );
+</script>
+
+</body>
+</html>
